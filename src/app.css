@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-background: black;
+  --color-white-100: rgba(0, 0, 0, 1);
+  --color-secondy: #d8e9a8;
+  --color-primary: #89ac46;
+  --color-primary-900: rgba(147, 162, 70,0.5);
+}
+
+* {
+  /* font-family: "DM Sans", sans-serif; */
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+@layer base {
+  section {
+    @apply h-full snap-y;
+  }
+
+  body {
+    @apply bg-background text-primary bg-contain ;
+  }
+
+  form {
+    @apply flex flex-col gap-8 w-full border-2 border-primary p-4 rounded-2xl text-secondy bg-black;
+  }
+  form div{
+    @apply flex flex-col gap-2 ;
+  }
+
+  input, textarea{
+    @apply border-none bg-primary-900 px-2 py-3 rounded-lg
+  }
+}
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 1px rgba(216,233,168,0.4);
+    color: transparent;
+    font-family: "Gilroy-Regular";
+  }
+
+  .text-stroke-sm {
+    -webkit-text-stroke: 1px black;
+  }
+
+  .text-stroke-lg {
+    -webkit-text-stroke: 3px black;
+  }
+
+  .slider-mask {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 10% 90%,
+      transparent
+    );
+  }
+}
+
+@layer components {
+  .max-container {
+    @apply max-w-[1440px] mx-auto;
+  }
+
+  .skills-list {
+    @apply absolute bg-background text-secondy w-12 px-12 py-2 flex justify-center text-center rounded-md left-full;
+  }
+  
+  .section {
+    @apply max-w-[1440px] mx-auto pt-32 flex justify-center;
+  }
+
+  .section-title {
+    @apply font-bold text-2xl text-center sm:text-left sm:text-6xl mb-20 tracking-[8px] uppercase;
+  }
+}
