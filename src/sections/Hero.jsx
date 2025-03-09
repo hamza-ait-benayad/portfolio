@@ -30,7 +30,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="flex gap-12 sm:justify-between sm:flex-row flex-col items-center max-container px-4 sm:px-16 h-[100vh] mt-28 sm:mt-0">
+    <section className="flex gap-12 sm:justify-between sm:flex-row flex-col items-center max-container px-4 sm:px-16 h-full sm:h-[100vh] mt-28 sm:mt-0">
       <motion.div
         className="text-4xl font-bold flex flex-col gap-7 "
         initial="hidden"
@@ -44,7 +44,7 @@ export default function Hero() {
         </motion.h1>
         <motion.h1 variants={variants}>
           <motion.span
-            className="bg-secondy px-2 text-black text-6xl leading-21 md:leading-none"
+            className="bg-secondy px-2 text-black text-6xl leading-21 xl:leading-none"
             variants={variants}
           >
             Web & Front End

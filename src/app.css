@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
-
 @theme {
   --color-background: black;
   --color-white-100: rgba(0, 0, 0, 1);
   --color-secondy: #d8e9a8;
   --color-primary: #89ac46;
-  --color-primary-900: rgba(147, 162, 70,0.5);
+  --color-primary-900: rgba(147, 162, 70, 0.5);
+  --color-primary-700: rgba(122, 172, 77);
 }
 
 * {
@@ -21,24 +21,29 @@
   }
 
   body {
-    @apply bg-background text-primary bg-contain ;
+    @apply bg-background text-primary bg-contain;
   }
 
   form {
     @apply flex flex-col gap-8 w-full border-2 border-primary p-4 rounded-2xl text-secondy bg-black;
   }
-  form div{
-    @apply flex flex-col gap-2 ;
+  form div {
+    @apply flex flex-col gap-2;
   }
 
-  input, textarea{
-    @apply border-none bg-primary-900 px-2 py-3 rounded-lg
+  input,
+  textarea {
+    @apply border-none bg-primary-900 px-2 py-3 rounded-lg;
+  }
+
+  button {  
+    @apply flex justify-center items-center border-none bg-primary text-black font-semibold py-2 rounded-sm cursor-pointer hover:opacity-75 hover:text-white
   }
 }
 
 @layer utilities {
   .text-stroke {
-    -webkit-text-stroke: 1px rgba(216,233,168,0.4);
+    -webkit-text-stroke: 1px rgba(216, 233, 168, 0.4);
     color: transparent;
     font-family: "Gilroy-Regular";
   }
@@ -59,6 +64,10 @@
       transparent
     );
   }
+
+  .grid-temp {
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  }
 }
 
 @layer components {
@@ -69,7 +78,7 @@
   .skills-list {
     @apply absolute bg-background text-secondy w-12 px-12 py-2 flex justify-center text-center rounded-md left-full;
   }
-  
+
   .section {
     @apply max-w-[1440px] mx-auto pt-32 flex justify-center;
   }
