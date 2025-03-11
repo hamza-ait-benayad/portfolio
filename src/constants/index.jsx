@@ -73,3 +73,4 @@ export const technologies = [
     description: "HTML",
   },
 ];
+
