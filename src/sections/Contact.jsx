@@ -46,7 +46,7 @@ const Contact = () => {
       .send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        { ...formData },
+        { ...formData, "g-recaptcha-response": token },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
