@@ -24,7 +24,6 @@ const Contact = () => {
         import.meta.env.VITE_RECAPTCHA_SITE_KEY
       }`;
       script.addEventListener("load", () => {
-        console.log("reCAPTCHA script loaded");
       });
       document.body.appendChild(script);
     };
@@ -36,19 +35,18 @@ const Contact = () => {
     publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
     limitRate: {
       id: "app",
-      throttle: 10000,
+      throttle: 1000000,
     },
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = await recaptchaRef.current.executeAsync();
-    console.log("reCAPTCHA Token:", token);
     emailjs
       .send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        { ...formData, "g-recaptcha-response": token },
+        { ...formData },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
@@ -67,7 +65,6 @@ const Contact = () => {
     });
   };
 
-  console.log(formData);
   return (
     <div className="section">
       <div className="flex flex-col w-5/6 ">
