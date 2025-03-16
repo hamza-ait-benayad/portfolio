@@ -2,9 +2,7 @@ export default function Experiance() {
   return (
     <div className="section">
       <div className="flex flex-col w-5/6">
-        <h1 className="section-title text-stroke">
-          EXPRIANCES
-        </h1>
+        <h1 className="section-title text-stroke">EXPRIANCES</h1>
         <div className="flex">
           <div className="h-auto w-1 bg-primary rounded-full"></div>
           <div className="w-5 h-5 bg-primary rounded-full relative right-3 top-1"></div>
