@@ -86,7 +86,7 @@ export default function About() {
                 >
                   {technologies.map((technologie, key) => (
                     <motion.div
-                      initial={{ left: "100%" }}
+                      initial={{ left: `max(calc(250px * ${technologies.length}),100%)` }}
                       animate={{ left: "-250px" }}
                       transition={{
                         duration: 10,
