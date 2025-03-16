@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { RiSendPlaneFill } from "react-icons/ri";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
+  const recaptchaRef = useRef(null);
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,23 +17,45 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    const loadReCaptcha = () => {
+      const script = document.createElement("script");
+      script.src = `https://www.google.com/recaptcha/api.js?render=${import.meta.env.VITE_RECAPTCHA_SITE_KEY}`;
+      script.addEventListener("load", () => {
+        console.log("reCAPTCHA script loaded");
+      });
+      document.body.appendChild(script);
+    };
+
+    loadReCaptcha();
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formData,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        (response) => {
-          console.log(response);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    const token = await recaptchaRef.current.getValue();
+          console.log("reCAPTCHA Token:", token);
+          emailjs
+          .send(
+            import.meta.env.VITE_EMAILJS_SERVICE_ID,
+            import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+            {...formData,'g-recaptcha-response':token},
+            import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+          )
+          .then(
+            (response) => {
+              console.log(response);
+            },
+            (error) => {
+              console.log(error);
+            }
+          );
+          setFormData({
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+          });
+
   };
 
   console.log(formData);
@@ -83,7 +108,12 @@ const Contact = () => {
                     required
                   ></textarea>
                 </div>
-                <button className="w-[50%] self-center">
+                <ReCAPTCHA
+          ref={recaptchaRef}
+          sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} 
+        />
+                <button 
+                className="w-[50%] self-center">
                   <RiSendPlaneFill size={30} />
                 </button>
               </form>
