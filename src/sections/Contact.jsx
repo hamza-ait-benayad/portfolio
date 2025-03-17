@@ -23,8 +23,7 @@ const Contact = () => {
       script.src = `https://www.google.com/recaptcha/api.js?render=${
         import.meta.env.VITE_RECAPTCHA_SITE_KEY
       }`;
-      script.addEventListener("load", () => {
-      });
+      script.addEventListener("load", () => {});
       document.body.appendChild(script);
     };
 
@@ -52,17 +51,17 @@ const Contact = () => {
       .then(
         (response) => {
           console.log(response);
+          setFormData({
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+          });
         },
         (error) => {
           console.log(error);
         }
       );
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
   };
 
   return (
