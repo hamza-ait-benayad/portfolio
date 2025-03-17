@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { socialMedia } from "../constants/index";
+import { IconContext } from "react-icons";
 
 export default function Hero() {
   const variants = {
@@ -60,13 +61,23 @@ export default function Hero() {
         </motion.h1>
         <motion.div variants={variants} className="flex gap-12">
           {socialMedia.map((e) => (
-            <div
-              className="bg-secondy rounded-full flex justify-center items-center p-2.5"
-              key={e.alt}
-            >
-              <a href="">
-                <img src={e.src} alt={e.alt} width={32} />
-              </a>
+            <div key={e.id}>
+              <IconContext.Provider
+                value={{
+                  color: "var(--color-primary-100)",
+                  size: "50",
+                  className: "border-1 border-red rounded-full p-2 ",
+                }}
+              >
+                <div
+                  className="flex flex-col-reverse items-center gap-2 relative cursor-pointer"
+                >
+                  <a href={e.url} className="hover:opacity-50" target="_blank" rel="noopener noreferrer">
+                    {e.icon}
+                  </a>
+                
+                </div>
+              </IconContext.Provider>
             </div>
           ))}
         </motion.div>
