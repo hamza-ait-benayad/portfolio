@@ -59,7 +59,7 @@ export default function Hero() {
             Developper
           </motion.span>
         </motion.h1>
-        <motion.div variants={variants} className="flex gap-12">
+        <motion.div variants={variants} className="flex gap-4 lg:gap-8">
           {socialMedia.map((e) => (
             <div key={e.id}>
               <IconContext.Provider
@@ -69,13 +69,15 @@ export default function Hero() {
                   className: "border-1 border-red rounded-full p-2 ",
                 }}
               >
-                <div
-                  className="flex flex-col-reverse items-center gap-2 relative cursor-pointer"
-                >
-                  <a href={e.url} className="hover:opacity-50" target="_blank" rel="noopener noreferrer">
+                <div className="flex flex-col-reverse items-center gap-2 relative cursor-pointer">
+                  <a
+                    href={e.url}
+                    className="hover:opacity-50"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {e.icon}
                   </a>
-                
                 </div>
               </IconContext.Provider>
             </div>
