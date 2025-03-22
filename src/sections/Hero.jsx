@@ -66,7 +66,7 @@ export default function Hero() {
                 value={{
                   color: "var(--color-primary-100)",
                   size: "50",
-                  className: "border-1 border-red rounded-full p-2 transition-all duration-300 hover:scale-110 hover:shadow-lg",
+                  className: "border-2 border-red rounded-full p-2 transition-all duration-300 hover:scale-110 hover:shadow-lg",
                 }}
               >
                 <div className="flex flex-col-reverse items-center gap-2 relative cursor-pointer">
