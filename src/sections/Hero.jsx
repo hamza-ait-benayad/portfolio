@@ -56,7 +56,7 @@ export default function Hero() {
             className="text-secondy px-2 text-3xl sm:text-5xl"
             variants={variants}
           >
-            Developper
+            Developer
           </motion.span>
         </motion.h1>
         <motion.div variants={variants} className="flex gap-4 lg:gap-8">
@@ -66,13 +66,13 @@ export default function Hero() {
                 value={{
                   color: "var(--color-primary-100)",
                   size: "50",
-                  className: "border-1 border-red rounded-full p-2",
+                  className: "border-1 border-red rounded-full p-2 transition-all duration-300 hover:scale-110 hover:shadow-lg",
                 }}
               >
                 <div className="flex flex-col-reverse items-center gap-2 relative cursor-pointer">
                   <a
                     href={e.url}
-                    className="hover:opacity-50"
+                    className="hover:opacity-80 transition-opacity duration-300"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -89,11 +89,11 @@ export default function Hero() {
         whileInView="visible"
         variants={imageVariants}
       >
-        <div className="relative bg-black flex justify-center items-center rounded-xl after:content-[''] p-8 after:absolute after:h-[100%] after:w-[100%] after:rounded-md after:bg-transparent after:border-[32px] after:-z-10 after:border-primary after:blur-2xl after:opacity-40 shadow-ligh">
+        <div className="relative bg-black flex justify-center items-center rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 after:content-[''] after:absolute after:h-[100%] after:w-[100%] after:rounded-md after:bg-transparent after:border-[32px] after:-z-10 after:border-primary after:blur-2xl after:opacity-40">
           <img
             src="/images/undraw_hello_ccwj.svg"
             alt="portfolio-image"
-            className="h-[200px]"
+            className="h-[200px] sm:h-[300px] transition-transform duration-300 hover:scale-105"
           />
         </div>
       </motion.div>

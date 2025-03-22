@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { RiSendPlaneFill } from "react-icons/ri";
 import emailjs from "@emailjs/browser";
 import ReCAPTCHA from "react-google-recaptcha";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const recaptchaRef = useRef(null);
@@ -71,7 +72,13 @@ const Contact = () => {
         <div className="flex flex-col lg:flex-row py-2 lg:py-12">
           <div className="w-full lg:w-3/5">
             <div className="relative">
-              <form onSubmit={handleSubmit}>
+              <motion.form 
+                onSubmit={handleSubmit}
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
                 <div>
                   <label htmlFor="">Name</label>
                   <input
@@ -123,19 +130,30 @@ const Contact = () => {
                 <button className="w-[50%] self-center">
                   <RiSendPlaneFill size={30} />
                 </button>
-              </form>
+              </motion.form>
               <div className="absolute top-0 lg:top-70 -left-10 -z-1 w-[300px] h-[250px] bg-primary rounded-full blur-[120px] opacity-80"></div>
             </div>
           </div>
           <div className="relative hidden lg:flex w-2/5 justify-center">
-            <img
+            <motion.img
               src="./images/email_sent.svg"
               alt=""
               width={300}
               height={200}
+              animate={{
+                y: [0, 20, 0],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             />
             <div className="absolute top-35 -right-20 -z-1 w-[300px] h-[300px] bg-primary rounded-full blur-[130px]"></div>
           </div>
+        </div>
+        <div className="mt-12 text-center text-gray-400">
+          <p>© {new Date().getFullYear()} All Rights Reserved | Project by Hamza</p>
         </div>
       </div>
     </div>

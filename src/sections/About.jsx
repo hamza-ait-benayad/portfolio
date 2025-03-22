@@ -68,7 +68,7 @@ export default function About() {
                     whileInView="visible"
                     variants={variants_images}
                     src="/images/undraw_dev-productivity_5wps.svg"
-                    alt="sd"
+                    alt="Developer productivity illustration"
                     width={2000}
                   />
                 </div>
@@ -80,22 +80,20 @@ export default function About() {
               <h1 className="text-4xl text-primary-900 font-bold">MY Skills</h1>
               <div className="w-full">
                 <div
-                  className={`overflow-hidden slider-mask relative flex h-[50px] w-full min-w[${
-                    250 * 3
-                  }px] mt-16`}
+                  className="overflow-hidden slider-mask relative flex h-[50px] w-full min-w-[750px] mt-16"
                 >
-                  {technologies.map((technologie, key) => (
+                  {technologies.map((technologie) => (
                     <motion.div
                       initial={{ left: `max(calc(250px * ${technologies.length}),100%)` }}
                       animate={{ left: "-250px" }}
                       transition={{
                         duration: 10,
                         ease: "linear",
-                        delay: (10 / technologies.length) * -key,
+                        delay: (10 / technologies.length) * -technologies.indexOf(technologie),
                         repeat: Infinity,
                         repeatType: "loop",
                       }}
-                      key={key}
+                      key={technologie.description}
                       className="absolute flex justify-center items-center w-[250px] h-[50px]  text-black rounded-2xl"
                     >
                       <div className="flex items-center gap-2 justify-center">
