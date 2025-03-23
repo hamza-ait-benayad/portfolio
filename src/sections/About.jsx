@@ -80,28 +80,30 @@ export default function About() {
               <h1 className="text-4xl text-primary-900 font-bold">MY Skills</h1>
               <div className="w-full">
                 <div
-                  className="overflow-hidden slider-mask relative flex h-[50px] w-full min-w-[750px] mt-16"
+                  className="overflow-hidden slider-mask relative flex h-[60px] w-full min-w-[750px] mt-16"
                 >
                   {technologies.map((technologie) => (
                     <motion.div
                       initial={{ left: `max(calc(250px * ${technologies.length}),100%)` }}
                       animate={{ left: "-250px" }}
                       transition={{
-                        duration: 10,
+                        duration: 20,
                         ease: "linear",
-                        delay: (10 / technologies.length) * -technologies.indexOf(technologie),
+                        delay: (20 / technologies.length) * -technologies.indexOf(technologie),
                         repeat: Infinity,
                         repeatType: "loop",
                       }}
                       key={technologie.description}
-                      className="absolute flex justify-center items-center w-[250px] h-[50px]  text-black rounded-2xl"
+                      className="absolute flex justify-center items-center w-[250px] h-[60px]  text-black py-6 rounded-2xl 
+                      inset-shadow-sm  inset-shadow-primary/50 cursor-pointer"
                     >
-                      <div className="flex items-center gap-2 justify-center">
+                      <div className="flex items-center gap-2 justify-center ">
                         <IconContext.Provider
                           value={{
                             color: "var(--color-primary-900)",
-                            size: "60",
+                            size: "50",
                           }}
+                          className="flex justify-center gap-2 items-center"
                         >
                           {technologie.icon}
                           <h1 className="text-primary-900 text-3xl font-semibold">

@@ -12,7 +12,7 @@ import { TbBrandJavascript } from "react-icons/tb";
 import { IoLogoCss3, IoLogoHtml5 } from "react-icons/io5";
 import { CiLinkedin } from "react-icons/ci";
 import { FaGithub, FaInstagram } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaXTwitter, FaJava, FaPhp, FaLaravel } from "react-icons/fa6";
 
 export const hero_image = "../assets/images/portfolio.png";
 
@@ -79,10 +79,14 @@ export const projects = [
 ];
 
 export const socialMedia = [
-  {id:1, icon: <FaGithub />, url: "https://github.com/hamza-ait-benayad" },
-  {id:2, icon: <CiLinkedin />, url: "https://www.linkedin.com/in/hamza-aitbenayad-612ba819b/" },
-  {id:3, icon: <FaXTwitter />, url: "https://x.com/hamza_bendy" },
-  {id:4, icon: <FaInstagram />, url: "instagram" },
+  { id: 1, icon: <FaGithub />, url: "https://github.com/hamza-ait-benayad" },
+  {
+    id: 2,
+    icon: <CiLinkedin />,
+    url: "https://www.linkedin.com/in/hamza-aitbenayad-612ba819b/",
+  },
+  { id: 3, icon: <FaXTwitter />, url: "https://x.com/hamza_bendy" },
+  { id: 4, icon: <FaInstagram />, url: "instagram" },
 ];
 
 export const technologies = [
@@ -105,5 +109,17 @@ export const technologies = [
   {
     icon: <IoLogoHtml5 />,
     description: "HTML",
+  },
+  {
+    icon: <FaJava />,
+    description: "Java",
+  },
+  {
+    icon: <FaPhp />,
+    description: "PHP",
+  },
+  {
+    icon: <FaLaravel />,
+    description: "Laravel",
   },
 ];
