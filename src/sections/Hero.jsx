@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { socialMedia } from "../constants/index";
 import { IconContext } from "react-icons";
+import Button from "../components/Button";
 
 export default function Hero() {
   const variants = {
@@ -83,6 +84,9 @@ export default function Hero() {
             </div>
           ))}
         </motion.div>
+        <div>
+          <Button href="/CV.pdf" label="Download CV"/>
+        </div>
       </motion.div>
       <motion.div
         initial="hidden"
