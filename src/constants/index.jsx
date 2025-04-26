@@ -78,6 +78,21 @@ export const projects = [
   },
 ];
 
+export const experiances = [
+  { 
+    year : "2024",
+    start_date: "april",
+    end_date: "may",
+    description: "During my internship at Ecole Nationale de Commerce et de Gestion, I developed a stock management system using Laravel for backend management and React JS for the frontend, enabling efficient stock management. I was also responsible for the installation and configuration of a web server, ensuring smooth deployment and hosting of the application for optimal performance.", 
+  },
+  { 
+    year : "2023",
+    start_date: "July",
+    end_date: "august",
+    description: "During my internship at Fiduciaire Al Widad, I created a company website to showcase the firm's services and improve its online visibility. Additionally, I carried out various tasks using Excel, contributing to data management and administrative support.", 
+  },
+  ]
+
 export const socialMedia = [
   { id: 1, icon: <FaGithub />, url: "https://github.com/hamza-ait-benayad" },
   {
