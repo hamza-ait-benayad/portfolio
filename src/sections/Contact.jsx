@@ -72,12 +72,13 @@ const Contact = () => {
         <div className="flex flex-col lg:flex-row py-2 lg:py-12">
           <div className="w-full lg:w-3/5">
             <div className="relative">
-              <motion.form 
+              <motion.form
                 onSubmit={handleSubmit}
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: false }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
+                className="backdrop-blur-[100px] bg-transparent"
               >
                 <div>
                   <label htmlFor="">Name</label>
@@ -131,7 +132,6 @@ const Contact = () => {
                   <RiSendPlaneFill size={30} />
                 </button>
               </motion.form>
-              <div className="absolute top-0 lg:top-70 -left-10 -z-1 w-[300px] h-[250px] bg-primary rounded-full blur-[120px] opacity-80"></div>
             </div>
           </div>
           <div className="relative hidden lg:flex w-2/5 justify-center">
@@ -149,11 +149,12 @@ const Contact = () => {
                 ease: "easeInOut",
               }}
             />
-            <div className="absolute top-35 -right-20 -z-1 w-[300px] h-[300px] bg-primary rounded-full blur-[130px]"></div>
           </div>
         </div>
         <div className="mt-12 text-center text-gray-400">
-          <p>© {new Date().getFullYear()} All Rights Reserved | Project by Hamza</p>
+          <p>
+            © {new Date().getFullYear()} All Rights Reserved | Project by Hamza
+          </p>
         </div>
       </div>
     </div>

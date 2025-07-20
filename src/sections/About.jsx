@@ -1,5 +1,4 @@
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { motion } from "framer-motion";
 import { IconContext } from "react-icons";
 import { technologies } from "../constants/index";
 
@@ -42,14 +41,14 @@ export default function About() {
         >
           A B O U T
         </motion.h1>
-        <div className="flex flex-col justify-center gap-20 w-full">
-          <div className="flex flex-col justify-center items-center">
-            <div className="flex flex-col sm:flex-row gap-14">
+        <div className="flex flex-col justify-center gap-20 w-full ">
+          <div className="flex flex-col justify-center items-center ">
+            <div className="flex flex-col sm:flex-row gap-14 ">
               <motion.p
                 initial="hidden"
                 whileInView="visible"
                 variants={variants}
-                className="font-semibold text-sm lg:text-2xl text-secondy m-auto leading-8"
+                className="font-semibold text-sm lg:text-2xl text-secondary m-auto leading-8 bg-transparent backdrop-blur-[100px] rounded-2xl p-4"
               >
                 👋 Welcome to my portfolio website! I&apos;m a front-end web
                 developer with a passion for creating stunning, responsive
@@ -62,7 +61,7 @@ export default function About() {
                 whileInView="visible"
                 variants={variants_images}
               >
-                <div className="relative w-full bg-black flex justify-center rounded-xl after:content-[''] p-8  after:absolute after:top-0 after:h-full after:w-full after:rounded-md after:bg-transparent after:border-[20px] after:-z-10 after:border-primary after:blur-3xl after:opacity-50">
+                <div className="relative w-full bg-transparent backdrop-blur-3xl flex justify-center rounded-xl p-8">
                   <motion.img
                     initial="hidden"
                     whileInView="visible"
@@ -77,42 +76,82 @@ export default function About() {
           </div>
           <div>
             <div className="flex flex-col items-center">
-              <h1 className="text-4xl text-primary-900 font-bold">MY Skills</h1>
-              <div className="w-full">
-                <div
-                  className="overflow-hidden slider-mask relative flex h-[60px] w-full min-w-[750px] mt-16"
-                >
-                  {technologies.map((technologie) => (
-                    <motion.div
-                      initial={{ left: `max(calc(250px * ${technologies.length}),100%)` }}
-                      animate={{ left: "-250px" }}
-                      transition={{
-                        duration: 20,
-                        ease: "linear",
-                        delay: (20 / technologies.length) * -technologies.indexOf(technologie),
-                        repeat: Infinity,
-                        repeatType: "loop",
-                      }}
-                      key={technologie.description}
-                      className="absolute flex justify-center items-center w-[250px] h-[60px]  text-black py-6 rounded-2xl 
-                      inset-shadow-sm  inset-shadow-primary/50 cursor-pointer"
-                    >
-                      <div className="flex items-center gap-2 justify-center ">
-                        <IconContext.Provider
-                          value={{
-                            color: "var(--color-primary-900)",
-                            size: "50",
-                          }}
-                          className="flex justify-center gap-2 items-center"
-                        >
-                          {technologie.icon}
-                          <h1 className="text-primary-900 text-3xl font-semibold">
-                            {technologie.description}
-                          </h1>
-                        </IconContext.Provider>
-                      </div>
-                    </motion.div>
-                  ))}
+              <h1 className="text-4xl text-primary font-bold border border-gray-900 rounded-2xl px-4 py-2 backdrop-blur-3xl bg-transparent">
+                MY Skills
+              </h1>
+              <div className="w-full ">
+                <div className="overflow-hidden slider-mask relative flex h-[60px] w-full mt-16">
+                  {technologies.map((technology) => {
+                    let technology_Color = "";
+                    switch (technology.description) {
+                      case "Java":
+                        technology_Color = "var(--color-java)";
+                        break;
+                      case "PHP":
+                        technology_Color = "var(--color-php)";
+                        break;
+                      case "CSS":
+                        technology_Color = "var(--color-css)";
+                        break;
+                      case "React js":
+                        technology_Color = "var(--color-reactJs)";
+                        break;
+                      case "Tailwind css":
+                        technology_Color = "var(--color-tailwind)";
+                        break;
+                      case "Laravel":
+                        technology_Color = "var(--color-laravel)";
+                        break;
+                      case "HTML":
+                        technology_Color = "var(--color-html)";
+                        break;
+                      case "JavaScript":
+                        technology_Color = "var(--color-javaScript)";
+                        break;
+                      default:
+                        technology_Color = "white";
+                        break;
+                    }
+                    return (
+                      <motion.div
+                        initial={{
+                          left: `max(calc(250px * ${technologies.length}),100%)`,
+                        }}
+                        animate={{ left: "-250px" }}
+                        transition={{
+                          duration: 20,
+                          ease: "linear",
+                          delay:
+                            (20 / technologies.length) *
+                            -technologies.indexOf(technology),
+                          repeat: Infinity,
+                          repeatType: "loop",
+                        }}
+                        key={technology.description}
+                        className="absolute flex justify-center items-center w-[250px] h-[60px] text-black py-6 rounded-2xl border border-black cursor-pointer "
+                      >
+                        <div className="flex items-center gap-2 justify-center ">
+                          <IconContext.Provider
+                            value={{
+                              color: `${technology_Color}`,
+                              size: "50",
+                              opacity: "50",
+                            }}
+                          >
+                            <div className="opacity-70 flex justify-center gap-2 items-center">
+                              {technology.icon}
+                              <h1
+                                className="text-3xl font-semibold"
+                                style={{ color: technology_Color }}
+                              >
+                                {technology.description}
+                              </h1>
+                            </div>
+                          </IconContext.Provider>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
