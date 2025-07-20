@@ -32,7 +32,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="flex gap-12 sm:justify-between sm:flex-row flex-col items-center max-container px-4 sm:px-16 h-full sm:h-[100vh] mt-28 sm:mt-0">
+    <section className="flex gap-12 lg:justify-between lg:flex-row flex-col-reverse items-center max-container px-4 lg:px-16 h-full lg:h-[100vh] mt-28 lg:mt-0">
       <motion.div
         className="text-2xl sm:text-6xl font-bold flex flex-col sm:gap-7 gap-4"
         initial="hidden"
@@ -46,7 +46,7 @@ export default function Hero() {
         </motion.h1>
         <motion.h1 variants={variants}>
           <motion.span
-            className="bg-secondy px-2 text-black text-5xl sm:text-6xl leading-18 xl:leading-none"
+            className="bg-secondary px-2 text-black text-5xl sm:text-6xl leading-18 xl:leading-none"
             variants={variants}
           >
             Web & Front End
@@ -54,7 +54,7 @@ export default function Hero() {
         </motion.h1>
         <motion.h1 variants={variants}>
           <motion.span
-            className="text-secondy px-2 text-3xl sm:text-5xl"
+            className="text-secondary px-2 text-3xl sm:text-5xl"
             variants={variants}
           >
             Developer
@@ -65,15 +65,16 @@ export default function Hero() {
             <div key={e.id}>
               <IconContext.Provider
                 value={{
-                  color: "var(--color-primary-100)",
+                  color: "var(--color-primary)",
                   size: "50",
-                  className: "border-2 border-red rounded-full p-2 transition-all duration-300 hover:scale-110 hover:shadow-lg",
+                  className:
+                    "border border-primary/50 rounded-xl p-2 transition-all duration-300 hover:scale-110 hover:shadow-lg opacity-50 hover:opacity-100 bg-transparent backdrop-blur-2xl",
                 }}
               >
                 <div className="flex flex-col-reverse items-center gap-2 relative cursor-pointer">
                   <a
                     href={e.url}
-                    className="hover:opacity-80 transition-opacity duration-300"
+                    className="hover:opacity-100 transition-opacity duration-300"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -85,21 +86,53 @@ export default function Hero() {
           ))}
         </motion.div>
         <div>
-          <Button href="/CV.pdf" label="Download CV"/>
+          <Button href="/CV.pdf" label="Download CV" />
         </div>
       </motion.div>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        variants={imageVariants}
-      >
-        <div className="relative bg-black flex justify-center items-center rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 after:content-[''] after:absolute after:h-[100%] after:w-[100%] after:rounded-md after:bg-transparent after:border-[32px] after:-z-10 after:border-primary after:blur-2xl after:opacity-40">
+      <motion.div className="h-[100%]">
+        <motion.div className="relative lg:p-5 ">
+          <motion.div
+            className="absolute -z-1 top-70 right-65 lg:top-20 lg:right-1 sm:right-74 sm:top-40
+        bg-primary flex justify-center items-center rounded-full h-[200px] sm:h-[400px] sm:w-[80px] p-8 shadow-primary shadow-4xl hover:shadow-4xl transition-all duration-300 after:content-[''] after:absolute after:h-[100%] after:w-[100%] after:rounded-md after:bg-transparent after:border-[32px] after:-z-10 after:border-primary after:blur-2xl after:opacity-40"
+            animate={{
+              y: [0, 50, 0],
+            }}
+            transition={{
+              duration: 1,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          ></motion.div>
+
+          <motion.div
+            className="absolute -z-1 right-0 lg:top-60 lg:right-100 sm:-top-20 sm:-right-15 bg-primary flex justify-center items-center rounded-full h-[200px] sm:h-[400px] sm:w-[80px] p-8  transition-all duration-300"
+            animate={{
+              y: [0, 150, 0],
+            }}
+            transition={{
+              duration: 1,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          ></motion.div>
+          <motion.div
+            className="absolute -z-1 -top-25 right-8 lg:top-8 lg:right-23  bg-primary-700/50 flex justify-center items-center rounded-full lg:h-[600px] lg:w-[300px] h-[550px] w-[250px] p-8 transition-all duration-300"
+            animate={{
+              y: [0, 200, 0],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          ></motion.div>
           <img
-            src="/images/undraw_hello_ccwj.svg"
+            src="/images/heroImage.png"
             alt="portfolio-image"
-            className="h-[200px] sm:h-[300px] transition-transform duration-300 hover:scale-105"
+            width={300}
+            className="lg:relative sm:right-18 sm:top-40  transition-transform duration-300 hover:scale-105"
           />
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );
