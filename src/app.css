@@ -3,15 +3,27 @@
 @theme {
   --color-background: black;
   --color-white-100: rgba(0, 0, 0, 1);
-  --color-secondy: #d8e9a8;
+  --color-secondary: #d8e9a8;
   --color-primary: #89ac46;
   --color-primary-900: rgba(147, 162, 70, 0.5);
   --color-primary-700: rgba(122, 172, 77);
+  --color-php : #474A8A;
+  --color-javaScript: #f0db4f;
+  --color-html: #F06529;
+  --color-css: #3c99dc;
+  --color-laravel: #f05340;
+  --color-reactJs: #61dbfb;
+  --color-tailwind:#3c99dc;
+  --color-java: #f14c4d;
 }
 
 * {
   scroll-behavior: smooth;
   box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(13, 13, 13);
 }
 
 @layer base {
@@ -24,7 +36,7 @@
   }
 
   form {
-    @apply flex flex-col gap-8 w-full border-2 border-primary p-4 rounded-2xl text-secondy bg-black;
+    @apply flex flex-col gap-8 w-full border border-primary/20 p-4 rounded-2xl text-secondary bg-black;
   }
   form div {
     @apply flex flex-col gap-2;
@@ -75,7 +87,7 @@
   }
 
   .skills-list {
-    @apply absolute bg-background text-secondy w-12 px-12 py-2 flex justify-center text-center rounded-md left-full;
+    @apply absolute bg-background text-secondary w-12 px-12 py-2 flex justify-center text-center rounded-md left-full;
   }
 
   .section {

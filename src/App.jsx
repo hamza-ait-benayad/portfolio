@@ -1,14 +1,16 @@
 import "./app.css";
 import About from "./sections/About";
-import Experiance from "./sections/Experiance";
+import Experiance from "./sections/Experience";
 import Hero from "./sections/Hero";
 import Navbar from "./components/Navbar";
 import Project from "./sections/Project";
 import Contact from "./sections/Contact";
+import AnimatedCursor from "./components/AnimatedCursor";
 
 const App = () => {
   return (
-    <main>
+    <main >
+      <AnimatedCursor/>
       <Navbar />
       <section id="home">
         <Hero />

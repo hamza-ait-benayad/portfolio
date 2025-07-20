@@ -11,7 +11,7 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <header className="px-8 sm:px-32 py-4 w-full z-10 fixed top-0 bg-background shadow-2xl shadow-primary/12 text-primary">
+    <header className="px-8 sm:px-32 py-4 w-full fixed top-0 bg-transparent backdrop-blur-sm text-primary z-[9999]">
       <nav
         className={`flex ${
           isMenuOpen && "max-lg:flex-col max-lg:h-[100vh]"
@@ -35,12 +35,12 @@ function Navbar() {
             </IconContext.Provider>
           </div>
         </div>
-        <ul className={`flex gap-10 flex-col lg:flex-row ${isMenuOpen ? "flex" : "max-sm:hidden"}`}>
+        <ul className={`flex gap-10 flex-col lg:flex-row ${isMenuOpen ? "flex" : "max-lg:hidden"}`}>
           {navLinks.map((link) => (
             <li key={link.label}>
               <a
                 href={link.href}
-                className="text-2xl font-mono hover:text-secondy transition-colors font-bold leading-normal"
+                className="text-2xl font-mono hover:text-secondary transition-colors font-bold leading-normal"
                 onClick={handleMenuView}
               >
                 {link.label}

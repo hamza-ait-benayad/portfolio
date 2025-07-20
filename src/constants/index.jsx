@@ -19,7 +19,7 @@ export const hero_image = "../assets/images/portfolio.png";
 export const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
-  { href: "#experiances", label: "Experiances" },
+  { href: "#experiences", label: "Experiences" },
   { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
 ];
@@ -78,7 +78,7 @@ export const projects = [
   },
 ];
 
-export const experiances = [
+export const experiences = [
   { 
     year : "2024",
     start_date: "april",
@@ -115,7 +115,7 @@ export const technologies = [
   },
   {
     icon: <TbBrandJavascript />,
-    description: "Java Script",
+    description: "JavaScript",
   },
   {
     icon: <IoLogoCss3 />,
