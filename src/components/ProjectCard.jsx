@@ -12,7 +12,7 @@ const ProjectCard = ({ imgURL, label, subtext, languages, url }) => {
   };
 
   return (
-    <div className="bg-gray-900 rounded-2xl p-2 inset-shadow-sm  inset-shadow-gray-100/50">
+    <div className="rounded-2xl p-2 backdrop-blur-[64px] bg-transparent border-primary/20 border">
       <div className="h-60 rounded-t-xl">
         <img
           src={imgURL}
@@ -31,9 +31,9 @@ const ProjectCard = ({ imgURL, label, subtext, languages, url }) => {
                 <div key={language.id}>
                   <IconContext.Provider
                     value={{
-                      color: "var(--color-primary-100)",
+                      color: "var(--color-primary)",
                       size: "40",
-                      className: "border-1 border-red rounded-full p-2 ",
+                      className: "border border-primary/50 rounded-full p-2 opacity-50 hover:opacity-100 hover:scale-110 transition-opacity",
                     }}
                   >
                     <div
@@ -43,7 +43,7 @@ const ProjectCard = ({ imgURL, label, subtext, languages, url }) => {
                       }}
                       onMouseLeave={handleHoverOff}
                     >
-                      <a href="" className="hover:opacity-50 ">
+                      <a href="" className="hover:opacity-100 transition-all">
                         {language.icon}
                       </a>
                       <p
@@ -59,7 +59,7 @@ const ProjectCard = ({ imgURL, label, subtext, languages, url }) => {
               ))}
             </div>
             <div>
-              <button className="w-20 p-1 bg-transparent text-primary border-2 border-primary">
+              <button className="w-20 p-1 bg-transparent text-primary border border-primary/50">
                 <a href={url} target="_blank" rel="noopener noreferrer">
                   Show
                 </a>
