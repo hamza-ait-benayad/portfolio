@@ -95,10 +95,10 @@ export default function Hero() {
             className="absolute -z-1 top-70 right-65 lg:top-20 lg:right-1 sm:right-74 sm:top-40
         bg-primary flex justify-center items-center rounded-full h-[200px] sm:h-[400px] sm:w-[80px] p-8 shadow-primary shadow-4xl hover:shadow-4xl transition-all duration-300 after:content-[''] after:absolute after:h-[100%] after:w-[100%] after:rounded-md after:bg-transparent after:border-[32px] after:-z-10 after:border-primary after:blur-2xl after:opacity-40"
             animate={{
-              y: [0, 50, 0],
+              y: [0, 100, 0],
             }}
             transition={{
-              duration: 1,
+              duration: 6,
               repeat: Infinity,
               ease: "easeInOut",
             }}
@@ -110,7 +110,7 @@ export default function Hero() {
               y: [0, 150, 0],
             }}
             transition={{
-              duration: 1,
+              duration: 6,
               repeat: Infinity,
               ease: "easeInOut",
             }}
@@ -118,10 +118,10 @@ export default function Hero() {
           <motion.div
             className="absolute -z-1 -top-25 right-8 lg:top-8 lg:right-23  bg-primary-700/50 flex justify-center items-center rounded-full lg:h-[600px] lg:w-[300px] h-[550px] w-[250px] p-8 transition-all duration-300"
             animate={{
-              y: [0, 200, 0],
+              y: [0, 150, 0],
             }}
             transition={{
-              duration: 2,
+              duration: 10,
               repeat: Infinity,
               ease: "easeInOut",
             }}

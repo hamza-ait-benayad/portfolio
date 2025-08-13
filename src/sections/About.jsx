@@ -76,7 +76,7 @@ export default function About() {
           </div>
           <div>
             <div className="flex flex-col items-center">
-              <h1 className="text-4xl text-primary font-bold border border-gray-900 rounded-2xl px-4 py-2 backdrop-blur-3xl bg-transparent">
+              <h1 className="text-4xl font-bold border border-gray-900 rounded-2xl w-full bg-primary/40 text-secondary text-center px-4 py-2 backdrop-blur-3xl ">
                 MY Skills
               </h1>
               <div className="w-full ">
@@ -128,7 +128,7 @@ export default function About() {
                           repeatType: "loop",
                         }}
                         key={technology.description}
-                        className="absolute flex justify-center items-center w-[250px] h-[60px] text-black py-6 rounded-2xl border border-black cursor-pointer "
+                        className="absolute flex justify-center items-center w-[250px] h-[60px] text-black py-6 rounded-2xl border border-primary-900/50 cursor-pointer "
                       >
                         <div className="flex items-center gap-2 justify-center ">
                           <IconContext.Provider
