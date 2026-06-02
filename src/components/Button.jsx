@@ -8,11 +8,11 @@ const Button = ({ href, label }) => {
       >
         <span className="pointer-events-none absolute inset-x-0 top-0 h-[calc(50%-5px)] border border-[#7D8082] border-b-0 transition-all duration-150 group-active:left-[3px] group-active:right-[3px] group-active:top-[3px]" />
         <span className="pointer-events-none absolute inset-x-0 bottom-0 h-[calc(50%-5px)] border border-[#7D8082] border-t-0 transition-all duration-150 group-active:left-[3px] group-active:right-[3px] group-active:bottom-[3px]" />
-        <span className="relative block px-8 py-3 bg-primary text-white overflow-hidden">
+        <span className="relative block px-8 py-3 bg-primary text-black overflow-hidden font-semibold">
           <span className="absolute top-0 left-0 w-[3px] h-[2px] bg-primary" />
-          <span className="absolute bottom-0 right-0 w-[4px] h-[4px] bg-primary transition-all duration-800 group-hover:bg-white" />
-          <span className="absolute top-0 bottom-[-1px] left-[-8px] w-0 bg-red-500 skew-x-[-15deg] transition-all duration-800 group-hover:w-[calc(100%+15px)]" />
-          <span className="relative">{label}</span>
+          <span className="absolute bottom-0 right-0 w-[4px] h-[4px] bg-primary transition-all duration-300 group-hover:bg-secondary" />
+          <span className="absolute top-0 bottom-[-1px] left-[-8px] w-0 bg-primary-700 skew-x-[-15deg] transition-all duration-300 group-hover:w-[calc(100%+15px)]" />
+          <span className="relative group-hover:text-black transition-colors duration-300">{label}</span>
         </span>
       </a>
     </div>

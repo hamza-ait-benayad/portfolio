@@ -1,6 +1,7 @@
 import "./app.css";
 import About from "./sections/About";
-import Experiance from "./sections/Experience";
+import Skills from "./sections/Skills";
+import Experience from "./sections/Experience";
 import Hero from "./sections/Hero";
 import Navbar from "./components/Navbar";
 import Project from "./sections/Project";
@@ -18,8 +19,11 @@ const App = () => {
       <section id="about">
         <About />
       </section>
+      <section id="skills">
+        <Skills />
+      </section>
       <section id="experiences">
-        <Experiance />
+        <Experience />
       </section>
       <section id="projects">
         <Project />

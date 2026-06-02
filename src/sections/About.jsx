@@ -1,162 +1,150 @@
 import { motion } from "framer-motion";
-import { IconContext } from "react-icons";
-import { technologies } from "../constants/index";
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 160, damping: 38 },
+  },
+};
+
+const fadeRight = {
+  hidden: { opacity: 0, x: 40 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { type: "spring", stiffness: 160, damping: 38, delay: 0.2 },
+  },
+};
+
+const quickFacts = [
+  { emoji: "🎓", label: "Master's Student in Software Engineering" },
+  { emoji: "💻", label: "Full-Stack Developer" },
+  { emoji: "🤖", label: "AI & Automation Enthusiast" },
+  { emoji: "🌍", label: "Based in Agadir, Morocco" },
+  { emoji: "🚀", label: "Interested in SaaS, AI & Startup Products" },
+  { emoji: "📚", label: "Continuous Learner" },
+];
+
+const bioParagraphs = [
+  "Hello, I'm Hamza, a Software Engineering Master's student and software developer passionate about building modern applications that solve real-world problems.",
+  "My work spans web development, AI integration, and business automation. I enjoy transforming ideas into reliable digital products by combining clean software architecture, intuitive user experiences, and emerging AI technologies.",
+  "Over the years, I have developed web applications, management systems, business websites, and automation solutions using technologies such as React, Next.js, Laravel, Java, and modern cloud tools. I'm particularly interested in the intersection of software engineering and artificial intelligence, where intelligent systems can help businesses become more efficient and productive.",
+  "Whether working independently, collaborating with a team, or contributing to a larger product, my focus remains the same: creating scalable solutions that deliver real value to users.",
+];
 
 export default function About() {
-  const variants_images = {
-    visible: {
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 20,
-      },
-      opacity: 1,
-    },
-    hidden: { opacity: 0, scale: 0.5 },
-  };
-
-  const variants = {
-    visible: {
-      x: 0,
-      transition: {
-        staggerChildren: 0.5,
-        type: "spring",
-        stiffness: 200,
-        damping: 50,
-      },
-      opacity: 1,
-    },
-    hidden: { x: -200, opacity: 0 },
-  };
-
   return (
     <div className="section">
-      <div className="flex w-5/6 flex-col">
-        <motion.h1
+      <div className="flex w-5/6 flex-col gap-16">
+
+        {/* ── Section Title ── */}
+        <motion.h2
           initial="hidden"
           whileInView="visible"
-          variants={variants}
-          className="font-extrabold text-2xl text-center sm:text-left sm:text-6xl mb-20 text-stroke"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          className="font-extrabold text-2xl text-center sm:text-left sm:text-6xl text-stroke"
         >
           A B O U T
-        </motion.h1>
-        <div className="flex flex-col justify-center gap-20 w-full ">
-          <div className="flex flex-col justify-center items-center ">
-            <div className="flex flex-col sm:flex-row gap-14 ">
+        </motion.h2>
+
+        {/* ── Bio + Quick Facts ── */}
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
+
+          {/* Bio text */}
+          <motion.div
+            className="flex flex-col gap-5 flex-1"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
+            <motion.h3
+              variants={fadeUp}
+              className="text-2xl sm:text-3xl font-bold text-secondary"
+            >
+              About Me
+            </motion.h3>
+
+            {bioParagraphs.map((para, i) => (
               <motion.p
-                initial="hidden"
-                whileInView="visible"
-                variants={variants}
-                className="font-semibold text-sm lg:text-2xl text-secondary m-auto leading-8 bg-transparent backdrop-blur-[100px] rounded-2xl p-4"
+                key={i}
+                variants={fadeUp}
+                className="text-white/65 leading-relaxed text-sm sm:text-base"
               >
-                👋 Welcome to my portfolio website! I&apos;m a front-end web
-                developer with a passion for creating stunning, responsive
-                websites and landing pages. With a strong foundation in HTML,
-                CSS, and JavaScript, and a keen eye for design, I specialize in
-                building user-friendly and visually appealing web experiences.
+                {para}
               </motion.p>
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                variants={variants_images}
-              >
-                <div className="relative w-full bg-transparent backdrop-blur-3xl flex justify-center rounded-xl p-8">
-                  <motion.img
-                    initial="hidden"
-                    whileInView="visible"
-                    variants={variants_images}
-                    src="/images/undraw_dev-productivity_5wps.svg"
-                    alt="Developer productivity illustration"
-                    width={2000}
-                  />
-                </div>
-              </motion.div>
-            </div>
-          </div>
-          <div>
-            <div className="flex flex-col items-center">
-              <h1 className="text-4xl font-bold border border-gray-900 rounded-2xl w-full bg-primary/40 text-secondary text-center px-4 py-2 backdrop-blur-3xl ">
-                MY Skills
-              </h1>
-              <div className="w-full ">
-                <div className="overflow-hidden slider-mask relative flex h-[60px] w-full mt-16">
-                  {technologies.map((technology) => {
-                    let technology_Color = "";
-                    switch (technology.description) {
-                      case "Java":
-                        technology_Color = "var(--color-java)";
-                        break;
-                      case "PHP":
-                        technology_Color = "var(--color-php)";
-                        break;
-                      case "CSS":
-                        technology_Color = "var(--color-css)";
-                        break;
-                      case "React js":
-                        technology_Color = "var(--color-reactJs)";
-                        break;
-                      case "Tailwind css":
-                        technology_Color = "var(--color-tailwind)";
-                        break;
-                      case "Laravel":
-                        technology_Color = "var(--color-laravel)";
-                        break;
-                      case "HTML":
-                        technology_Color = "var(--color-html)";
-                        break;
-                      case "JavaScript":
-                        technology_Color = "var(--color-javaScript)";
-                        break;
-                      default:
-                        technology_Color = "white";
-                        break;
-                    }
-                    return (
-                      <motion.div
-                        initial={{
-                          left: `max(calc(250px * ${technologies.length}),100%)`,
-                        }}
-                        animate={{ left: "-250px" }}
-                        transition={{
-                          duration: 20,
-                          ease: "linear",
-                          delay:
-                            (20 / technologies.length) *
-                            -technologies.indexOf(technology),
-                          repeat: Infinity,
-                          repeatType: "loop",
-                        }}
-                        key={technology.description}
-                        className="absolute flex justify-center items-center w-[250px] h-[60px] text-black py-6 rounded-2xl border border-primary-900/50 cursor-pointer "
-                      >
-                        <div className="flex items-center gap-2 justify-center ">
-                          <IconContext.Provider
-                            value={{
-                              color: `${technology_Color}`,
-                              size: "50",
-                              opacity: "50",
-                            }}
-                          >
-                            <div className="opacity-70 flex justify-center gap-2 items-center">
-                              {technology.icon}
-                              <h1
-                                className="text-3xl font-semibold"
-                                style={{ color: technology_Color }}
-                              >
-                                {technology.description}
-                              </h1>
-                            </div>
-                          </IconContext.Provider>
-                        </div>
-                      </motion.div>
-                    );
-                  })}
-                </div>
+            ))}
+
+            {/* Illustration */}
+         
+          </motion.div>
+
+          {/* Quick Facts card */}
+          <motion.div
+            className="w-full lg:w-80 xl:w-96 flex-shrink-0"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeRight}
+          >
+            <div className="sticky top-28 rounded-2xl border border-primary/20 bg-white/3 backdrop-blur-xl p-6 shadow-xl shadow-black/30">
+              {/* Card header */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-1 h-6 bg-primary rounded-full" />
+                <h4 className="text-lg font-bold text-secondary tracking-wide">
+                  Quick Facts
+                </h4>
               </div>
+
+              {/* Facts list */}
+              <ul className="flex flex-col gap-3">
+                {quickFacts.map((fact, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 160,
+                      damping: 38,
+                      delay: 0.3 + i * 0.07,
+                    }}
+                    className="flex items-start gap-3 group"
+                  >
+                    <span className="text-xl leading-none mt-0.5 group-hover:scale-110 transition-transform duration-200">
+                      {fact.emoji}
+                    </span>
+                    <span className="text-sm text-white/70 group-hover:text-secondary transition-colors duration-200 leading-snug">
+                      {fact.label}
+                    </span>
+                  </motion.li>
+                ))}
+              </ul>
+
+              {/* Divider */}
+              <div className="my-6 border-t border-primary/10" />
+
+              {/* CTA */}
+              <a
+                href="/CV.pdf"
+                download
+                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-sm bg-primary text-black text-sm font-bold tracking-wide hover:bg-secondary transition-all duration-300 hover:shadow-lg hover:shadow-primary/30"
+              >
+                Download CV
+              </a>
             </div>
-          </div>
+          </motion.div>
         </div>
+
       </div>
     </div>
   );
