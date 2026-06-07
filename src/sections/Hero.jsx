@@ -138,7 +138,7 @@ export default function Hero() {
 
             {/* Main image blob */}
             <motion.div
-              className="absolute -top-25 right-8 lg:top-8 lg:right-23 bg-primary-700/50 flex justify-center items-center rounded-full lg:h-[600px] lg:w-[300px] h-[550px] w-[250px] transition-all duration-300 overflow-hidden"
+              className="absolute -top-25 right-8 lg:top-8 lg:right-23 bg-primary-700/50 flex justify-center items-center rounded-full lg:h-[600px] lg:w-[300px] h-[550px] w-[250px] transition-all duration-300 overflow-hidden p-4"
               animate={{ y: [0, 50, 0] }}
               transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             >
